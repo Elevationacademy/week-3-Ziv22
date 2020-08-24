@@ -7,6 +7,7 @@ const pushBooks = book =>{
             neruoscienceComputerBooks.push(book.volumeInfo.title)
         }
     }
+    return neruoscienceComputerBooks;
 }
 
 const fetchBooks = (startIndex) =>{
@@ -15,7 +16,7 @@ const fetchBooks = (startIndex) =>{
         url: `https://www.googleapis.com/books/v1/volumes?q=title:neuroscience&maxResults=40&startIndex=${startIndex}`,
         success: function (data) {
             data.items.forEach(element => {
-                pushBooks(element) 
+                pushBooks(element)
             });
         },  
         error: function (xhr, text, error) {
